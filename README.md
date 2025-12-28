@@ -1,5 +1,5 @@
 # MAUI_Picker_issue_1
-Repository for the issue  [The Picker is still binding to the property and reacts to data changes after the page is closed.]()
+Repository for the issue  [The Picker is still binding to the property and reacts to data changes after the page is closed.](https://github.com/dotnet/maui/issues/33307)
 
 MauiApp1:
 * .NET 9
