@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Page2"
+             Title="Page2">
+    <Grid RowDefinitions="Auto,*,50" RowSpacing="11" Margin="10,10,10,20">
+        <VerticalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="End">
+            <Grid ColumnDefinitions="*,*,60" ColumnSpacing="5">
+                <Label Grid.Column="0" Text="Name" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Grid.Column="1" Text="ItemB" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Label Grid.Column="2" Text="Delete" VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Grid>
+            <BoxView Color="Black" HeightRequest="2" CornerRadius="20"/>
+        </VerticalStackLayout>
+        <CollectionView Grid.Row="1" x:Name="collectionView1" HorizontalOptions="Fill" BackgroundColor="WhiteSmoke">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Margin="1,0,1,0">
+                        <Grid ColumnSpacing="5" ColumnDefinitions="*,*,60">
+                            <Entry Grid.Column="0" Text="{Binding name}" Placeholder="Name" VerticalOptions="Center"/>
+                            <Picker Grid.Column="1" ItemsSource="{Binding itemsB}" ItemDisplayBinding="{Binding name}" SelectedItem="{Binding selected_item}" TextColor="Black" TitleColor="Gray"/>
+                            <Button Grid.Column="2" x:Name="buttonDeleteRow" Text="🗑" HeightRequest="51" WidthRequest="51" HorizontalOptions="Start" VerticalOptions="End" BackgroundColor="Red" Clicked="buttonDeleteRow_Clicked"/>
+                        </Grid>
+                        <BoxView Color="WhiteSmoke" HeightRequest="20"/>
+                        <BoxView Color="Black" HeightRequest="2" CornerRadius="20"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <!--EmptyView-->
+            <CollectionView.EmptyView>
+                <Label Text="No items to display" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            </CollectionView.EmptyView>
+        </CollectionView>
+        <Button Grid.Row="2" x:Name="buttonAddRow" Text="Add" HorizontalOptions="Start" Clicked="buttonAddRow_Clicked"/>
+    </Grid>
+</ContentPage>
